@@ -1,11 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+int game_code();
 int main(){
-    int no,user1,user2,a=0,b=0;
-
-    srand(time(0));
-    no=rand()%100+1;
+    int user1,a=0,b=0,s;
     printf(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,''''''''''WELCOME'''''''''''',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n");
     printf("\n");
     printf("The game begins now \n");
@@ -27,44 +25,22 @@ int main(){
     printf("\n");
     printf("\n");
     printf("\n");
-    printf("The turn of the first user start now");
-    for(int i=1;i<=10;i++){
-        
-        printf("Enter the number you gussed\n");
-        scanf("%d",&user1);
-        if(user1<0){
-            printf("The number you input is negative so you are being exterminated from the game");
-            break;
-        }
-        
-        else if(no<user1){
-            if((user1-no)>10) {
-                printf("The number you gussed is far away  and greater from the number gussed by the computer\n");
-                printf("Use 10 minus tactics or of your choice\n");
-            }
-            else{
-                printf("The number guessed by you is too much close but is greater then the number gussed by the computer\n");
-            }
-        }
-        else if(no==user1) {
-            printf("You win now let another user make its gusses\n");
-            printf("You guessed it in %d attempts\n",i);
-            a=i;
-            break;
-        }
-        else if(no>user1){
-            if((no-user1)>10){
-                printf("The number you gussed is far away  and smaller from the number gussed by the computer\n");
-                printf("Use 10 minus tactics or of your choice\n");
-            }
-            else{
-                printf("The number gussed by is too much close just few number small\n");
-            }
-        }
+    a=game_code();
+    b=game_code();
+    if(a<b){
+        printf("The user1 win and better luck for next time for user2\n");
     }
+    else{
+        printf("The user2 wins and better luch next time for user1\n");
+    }
+    return 0;
+}
+int game_code()
+{
+    int no,b,user2;
     srand(time(0));
     no=rand()%100+1;
-    printf("Now turn is of another user");
+    printf("Your turn starts now\n");
     for(int i=1;i<=10;i++){
         
         printf("Enter the number you gussed\n");
@@ -83,7 +59,7 @@ int main(){
             }
         }
         else if(no==user2) {
-            printf("You win now lets check who wins\n");
+            printf("You win now let another user make its gusses\n");
             printf("You guessed it in %d attempts\n",i);
             b=i;
             break;
@@ -95,17 +71,8 @@ int main(){
             }
             else{
                 printf("The number gussed by is too much close just few number small\n");
-            }
-            
-            
-            
+            }            
         }
     }
-    if(a<b){
-        printf("The user1 win and better luck for next time for user2\n");
-    }
-    else{
-        printf("The user2 wins and better luch next time for user1\n");
-    }
-    return 0;
+    return b;
 }
