@@ -48,6 +48,7 @@ int main(){
         }
         else if(no==user1) {
             printf("You win now let another user make its gusses\n");
+            printf("You guessed it in %d attempts",i);
             a=i;
             break;
         }
@@ -83,6 +84,7 @@ int main(){
         }
         else if(no==user2) {
             printf("You win now lets check who wins\n");
+            printf("You guessed it in %d attempts",i);
             b=i;
             break;
         }
